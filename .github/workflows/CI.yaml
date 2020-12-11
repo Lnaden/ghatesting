@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+      - "main"
+  pull_request:
+    branches:
+      - "master"
+      - "main"
+
+jobs:
+  no-channels:
+    name: Test No Channels Set Anywhere
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.9
+          environment-file: no-channel.yaml
+          auto-update-conda: false
+          auto-activate-base: false
+          show-channel-urls: true
+
+  empty-channel:
+    name: Test Empty Channels in File
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.9
+        environment-file: empty-channel.yaml
+        auto-update-conda: false
+        auto-activate-base: false
+        show-channel-urls: true
+
+  channel-in-file:
+    name: Test Channel in File only
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.9
+        environment-file: channel-in-file-only.yaml
+        auto-update-conda: false
+        auto-activate-base: false
+        show-channel-urls: true
+
+  setup-channel-only:
+    name: Test Channel in GHA only
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.9
+        environment-file: setup-channel-only.yaml
+        channels: defaults
+        auto-update-conda: false
+        auto-activate-base: false
+        show-channel-urls: true
+
+  setup-channel-empty-file:
+    name: Test Channel in GHA, empty file
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.9
+        environment-file: setup-channel-empty-file.yaml
+        channels: defaults
+        auto-update-conda: false
+        auto-activate-base: false
+        show-channel-urls: true
+
+  channel-in-both:
+    name: Test Channels defined in both
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.9
+        environment-file: channel-in-both.yaml
+        channels: defaults
+        auto-update-conda: false
+        auto-activate-base: false
+        show-channel-urls: true

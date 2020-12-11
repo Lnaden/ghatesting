@@ -1,0 +1,5 @@
+name: channel-in-file-only
+channels:
+  - conda-forge
+dependencies:
+  - python
