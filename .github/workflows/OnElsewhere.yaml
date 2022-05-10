@@ -16,6 +16,4 @@ on:
 jobs:
   test-on-elsewhere:
     name: "Test runs-on matrix elsewhere"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/actions/job-matrix.yaml
+    uses: ./.github/actions/job-matrix.yaml
