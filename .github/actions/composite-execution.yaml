@@ -1,0 +1,25 @@
+name: A composite Execution File
+description: Uses a very simplistic execution file to run the operations
+
+inputs:
+   python-version:
+     required: true
+     description: "The python version to accept"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v1
+
+    - name: Additional info about the build
+      shell: bash
+      run: |
+        uname -a
+        df -h
+        ulimit -a
+
+
+    - name: Set up Python ${{ inputs.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ inputs.python-version }}
