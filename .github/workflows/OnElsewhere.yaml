@@ -16,4 +16,4 @@ on:
 jobs:
   test-on-elsewhere:
     name: "Test runs-on matrix elsewhere"
-    uses: .github/workflows/job-matrix.yaml
+    uses: ./.github/workflows/job-matrix.yaml
