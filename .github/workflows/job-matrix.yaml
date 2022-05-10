@@ -1,5 +1,8 @@
 name: Job matrix held in different workflow
 
+on:
+  workflow-call:
+
 jobs:
   echo-hello-world:
     name: Test on ${{ matrix.os }}, Python ${{ matrix.python-version }}
