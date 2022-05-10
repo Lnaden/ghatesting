@@ -9,3 +9,5 @@ Tests the permutations of:
 * In GHA: Channels undefined / Channels defined 
 
 6 Permutations.
+
+# This also tests other GitHub actions

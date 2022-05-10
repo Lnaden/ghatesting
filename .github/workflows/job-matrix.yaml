@@ -1,0 +1,23 @@
+name: Job matrix held in different workflow
+
+on:
+  workflow_call:
+
+jobs:
+  echo-hello-world:
+    name: Test on ${{ matrix.os }}, Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest, windows-latest]
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - id: echo
+        run: echo "Ran test on ${{ matrix.os }} with Python ${{ matrix.python-version }}"
+      - id: checkout
+        uses: actions/checkout@v3
+      - id: CallComposite
+        uses: ./.github/actions/composite-execution
+        with:
+          python-version: ${{ matrix.python-version }}
