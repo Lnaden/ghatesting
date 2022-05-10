@@ -1,7 +1,7 @@
 name: Job matrix held in different workflow
 
 on:
-  workflow-call:
+  workflow_call:
 
 jobs:
   echo-hello-world:
