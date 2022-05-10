@@ -15,9 +15,9 @@ jobs:
     steps:
       - id: echo
         run: echo "Ran test on ${{ matrix.os }} with Python ${{ matrix.python-version }}"
-      - id: checkout
-        uses: actions/checkout@v3
+#      - id: checkout
+#        uses: actions/checkout@v3
       - id: CallComposite
-        uses: ./.github/actions/composite-execution.yaml
+        uses: ./.github/actions/composite-execution
         with:
           python-version: ${{ matrix.python-version }}
