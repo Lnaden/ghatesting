@@ -15,7 +15,7 @@ jobs:
     steps:
       - id: echo
         run: echo "Ran test on ${{ matrix.os }} with Python ${{ matrix.python-version }}
-      - id: Call Composite
+      - id: CallComposite
         uses: ./.github/actions/composite-execution.yaml
         with:
           python-version: ${{ matrix.python-version }}
