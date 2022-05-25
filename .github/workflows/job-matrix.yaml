@@ -17,7 +17,14 @@ jobs:
         run: echo "Ran test on ${{ matrix.os }} with Python ${{ matrix.python-version }}"
       - id: checkout
         uses: actions/checkout@v3
-      - id: CallComposite
-        uses: ./composite-top
+#      - id: CallComposite
+#        uses: ./composite-top
+#        with:
+#          python-version: ${{ matrix.python-version }}
+      - id: Touch composite
+        shell: bash | 
+          cp -r composite-top copied-composite
+      - id: CallCopy
+        uses: ./copied-composite
         with:
           python-version: ${{ matrix.python-version }}
