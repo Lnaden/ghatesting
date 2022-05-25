@@ -18,6 +18,6 @@ jobs:
       - id: checkout
         uses: actions/checkout@v3
       - id: CallComposite
-        uses: ./.github/compelsewhere/composite-execution
+        uses: ./composite-top
         with:
           python-version: ${{ matrix.python-version }}
