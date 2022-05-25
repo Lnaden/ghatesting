@@ -22,8 +22,8 @@ jobs:
 #        with:
 #          python-version: ${{ matrix.python-version }}
       - id: Touch composite
-        shell: bash | 
-          cp -r composite-top copied-composite
+        shell: bash
+        run: cp -r composite-top copied-composite
       - id: CallCopy
         uses: ./copied-composite
         with:
